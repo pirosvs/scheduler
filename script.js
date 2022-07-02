@@ -11,7 +11,7 @@
 // the time 
 
 // Displays the current date at the top of the page 
-var today = moment().format('MMM Do, YYYY');
+var today = moment().format('dddd, MMM Do, YYYY');
 $("#currentDay").text(today);
 
 
