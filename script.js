@@ -32,7 +32,7 @@ var twentyThreeInfo = $('#twentyThreeNotes');
 var twentyFourInfo = $('#twentyFourNotes');
 var info = {};
 
-document.localStorage.getItem(info);
+localStorage.getItem(info);
 
 var saveBtnEl = document.getElementsByClassName('saveBtn');
 
@@ -40,9 +40,9 @@ var saveInfo = function(event) {
     // error around preventDefault, which is not preventing the default??
     // information is not even being taken in it looks like? console log shows nothing
     // looks like button isn't working at all either, only can get action from pressing enter
-    event.preventDefault();
+    // event.preventDefault();
     info = {
-        tennotes : tenInfo.value.trim(),
+        tennotes : tenInfo.val(),
     }    
     localStorage.setItem("notes", JSON.stringify(info));
     // localStorage.getItem("text");
@@ -53,9 +53,14 @@ var saveInfo = function(event) {
     // localStorage.setItem("info", info);
 };
 
-saveBtnEl.on('submit', saveInfo());
-
-function clickWork() {
-    console.log("click");
-}
+// this set up will put it in the console log when enter is pressed instead of refreshing the page but doesn't save to
+// local storage and does not call the button what in the HELL is wrong with my buttons
+$("button").click(function(event) {
+    event.preventDefault();
+    info = {
+        tennotes : tenInfo.val(),
+    }    
+    localStorage.setItem("notes", JSON.stringify(info));
+    console.log(info);
+});
 
