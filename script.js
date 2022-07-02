@@ -19,7 +19,8 @@ var info = {};
 console.log(moment().hour());
 
 // Gets local storage as page loads
-localStorage.getItem(info);
+// info.JSON.parse();
+localStorage.getItem("notes");
 
 var saveBtnEl = $('.saveBtn');
 
