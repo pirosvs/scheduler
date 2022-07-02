@@ -18,7 +18,7 @@ var info = {};
 
 console.log(moment().hour());
 
-// Gets local storage as page initialized
+// Gets local storage as page loads
 localStorage.getItem(info);
 
 var saveBtnEl = $('.saveBtn');
