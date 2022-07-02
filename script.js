@@ -12,21 +12,17 @@ var fifteenInfo  = $('#fifteenNotes');
 var sixteenInfo = $('#sixteenNotes');
 var seventeenInfo = $('#seventeenNotes');
 
-// Array of each input form so that I don't have to create individual conditionals below
-var forms = [nineInfo, tenInfo, elevenInfo, twelveInfo, thirteenInfo, fourteenInfo, fifteenInfo, sixteenInfo, seventeenInfo];
 var info = {};
 
 console.log(moment().hour());
 
-// Gets local storage as page loads
-// info.JSON.parse();
-localStorage.getItem("notes");
+// Gets local storage as page loads -- below is as close as I could get within the time allotted
+// var storedItems = localStorage.getItem("notes");
+// document.getElementById(“userName”).value = storedItem;
 
 var saveBtnEl = $('.saveBtn');
 
-// this set up will put it in the console log when enter is pressed instead of refreshing the page but doesn't save to
-// local storage and does not call the button what in the HELL is wrong with my buttons
-// also this looks like it would grab all values for any button which is probably wrong but it doesn't work anyways so
+// Takes in user input and saves it to local storage
 $("button").click(function(event) {
     event.preventDefault();
     info = {
@@ -40,30 +36,14 @@ $("button").click(function(event) {
         sixteenNotes : sixteenInfo.val(),
         seventeenNotes : seventeenInfo.val(),
     }    
-    localStorage.setItem("notes", JSON.stringify(info));
     console.log(info);
+    localStorage.setItem("notes", JSON.stringify(info));
 });
-
-// Changes style of form based on if the given time is already past, is in the future, or is the current hour
-// Need to have number values for this to work -- would giving them key pairs work somehow?
-for (i=0; i<forms.length; i++) {
-    if (moment().hour() == forms[i]) {
-        forms[i].addClass('present');
-    } else if (moment().hour() > forms[i]) {
-        forms[i].addClass('future');
-    } else if (moment().hour() < forms[i]) {
-        forms[i].addClass('past');
-    }
-};
 
 // Clears out storage after 1am
 if (moment().hour() == 1) {
     localStorage.clear();
 }
-
-
-// need to connect each input id to a variable with a number value so that the number value can be judged and
-// the input with the given id can be affected based on that judgement
 
 // Setting the input classes individually because I am unable to just make it one conditional at this time
 if (moment().hour() > 9) {
@@ -137,3 +117,25 @@ if (moment().hour() > 17) {
 } else if (moment().hour() < 17) {
     seventeenInfo.addClass('future');
 };
+
+
+// Unused code I was hoping to use to simplify the above 9 conditionals
+
+// Array of each input form so that I don't have to create individual conditionals below
+var forms = [nineInfo, tenInfo, elevenInfo, twelveInfo, thirteenInfo, fourteenInfo, fifteenInfo, sixteenInfo, seventeenInfo];
+
+// Changes style of form based on if the given time is already past, is in the future, or is the current hour
+// Need to have number values for this to work -- would giving them key pairs work somehow?
+for (i=0; i<forms.length; i++) {
+    if (moment().hour() == forms[i]) {
+        forms[i].addClass('present');
+    } else if (moment().hour() > forms[i]) {
+        forms[i].addClass('future');
+    } else if (moment().hour() < forms[i]) {
+        forms[i].addClass('past');
+    }
+};
+
+// need to connect each input id to a variable with a number value so that the number value can be judged and
+// the input with the given id can be affected based on that judgement
+
