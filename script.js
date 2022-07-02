@@ -14,10 +14,11 @@
 var today = moment().format('MMM Do, YYYY');
 $("#currentDay").text(today);
 
+
 var saveBtnEl = document.getElementsByClassName('saveBtn');
 
-var saveInfo = function(event) {
-
+var saveInfo = function() {
+    console.log("hello");
 };
 
 saveBtnEl.on('click', saveInfo);
