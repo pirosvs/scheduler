@@ -4,8 +4,8 @@
 <a href="https://pirosvs.github.io/scheduler/">Click here to view the site</a>
 
 ## Description
-<img src="./images/manipulated-time-classes.png" alt="Display of color-coded times"/> (https://ibb.co/VNFSJVB)
-<img src="" alt="Schedule at smaller screen size"/> (https://ibb.co/0X9JY4C)
+<img src="./images/manipulated-time-classes.png" alt="Display of color-coded times"/>
+<img src="./images/small-schedule.png" alt="Schedule at smaller screen size"/>
 
 This project attempts to make use of third-party APIs such as jQuery and Moment.js in order to provide a functional scheduler that users can input information into, saved in local storage for the rest of the day until around 1am when it gets cleared. The input forms change color based on what time it is to clearly mark what times have already passed, what time it is now, and how many hours are left in the day still. This offers an easy to understand daily schedule for work-day planning for those working a typical office shift.
 
